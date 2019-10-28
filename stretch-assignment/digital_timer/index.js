@@ -31,9 +31,22 @@ function timeTick(){
     time+=1;
 }
 
+const btn = document.querySelector('button');
+
 function t(){
-    setInterval(timeTick, 10);
+    myInt = setInterval(timeTick, 10);
 }
 
-const btn = document.querySelector('button');
+function cl(){
+    clearInterval(myInt);
+    time=0;
+    msTens.textContent = 0;
+    msHundreds.textContent = 0;
+    secondOnes.textContent = 0;
+    secondTens.textContent = 0;
+}
 btn.addEventListener("click", t);
+
+const reset = document.querySelector('.reset');
+
+reset.addEventListener("click", cl);
