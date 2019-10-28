@@ -8,6 +8,7 @@ secondOnes.textContent = 0;
 msHundreds.textContent = 0;
 msTens.textContent = 0;
 time = 0
+const colorS = document.querySelector('.digits');
 function timeTick(){
     let arrTime = time.toString().split('');
     if(time<10){
@@ -25,8 +26,8 @@ function timeTick(){
         msHundreds.textContent = 0;
         secondOnes.textContent = 0;
         secondTens.textContent = 1;
-        const colorS = document.querySelector('.digits');
         colorS.style.color = 'red';
+        btn.disabled = false;
     }
     time+=1;
 }
@@ -35,6 +36,7 @@ const btn = document.querySelector('button');
 
 function t(){
     myInt = setInterval(timeTick, 10);
+    btn.disabled = true;
 }
 
 function cl(){
@@ -44,6 +46,8 @@ function cl(){
     msHundreds.textContent = 0;
     secondOnes.textContent = 0;
     secondTens.textContent = 0;
+    btn.disabled = false;
+    colorS.style.color = 'black';
 }
 btn.addEventListener("click", t);
 
